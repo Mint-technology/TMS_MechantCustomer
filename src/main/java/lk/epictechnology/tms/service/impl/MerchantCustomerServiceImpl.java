@@ -2,9 +2,7 @@ package lk.epictechnology.tms.service.impl;
 
 import lk.epictechnology.tms.dto.merchantcustomerDTO;
 import lk.epictechnology.tms.entity.merchantcustomer;
-import lk.epictechnology.tms.entity.testTable;
 import lk.epictechnology.tms.repo.MerchantCustomerRepo;
-import lk.epictechnology.tms.repo.testRepo;
 import lk.epictechnology.tms.service.MerchantCustomerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

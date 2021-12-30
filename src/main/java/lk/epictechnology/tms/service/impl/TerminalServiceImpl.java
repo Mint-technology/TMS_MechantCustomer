@@ -31,4 +31,10 @@ public class TerminalServiceImpl implements TerminalService {
     public void addTerminal(terminalDTO dto) {
         repo.save(mapper.map(dto, terminal.class));
     }
+
+    @Override
+    public String getTerminalID(String TERMINALID) {
+        return repo.getTERMINALID(TERMINALID);
+    }
+
 }

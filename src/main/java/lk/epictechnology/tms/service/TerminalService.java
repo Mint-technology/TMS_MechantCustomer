@@ -8,4 +8,6 @@ import lk.epictechnology.tms.dto.terminalDTO;
  */
 public interface TerminalService {
     void addTerminal(terminalDTO dto);
+
+    String getTerminalID(String TERMINALID);
 }

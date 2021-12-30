@@ -28,7 +28,15 @@ public class TerminalController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity saveTerminal(@RequestBody terminalDTO dto) throws NotFoundException {
 
-        service.addTerminal(dto);
+        if (dto.getTERMINALID().trim().length() <= 0) {
+            throw new NotFoundException("TERMINALID cannot be empty");
+        }
+        String TERMINALID=service.getTerminalID(dto.getTERMINALID());
+        if (TERMINALID == null){
+            service.addTerminal(dto);
+        }else if (TERMINALID.equals(dto.getTERMINALID())){
+            return new ResponseEntity(new StandardResponse("409", "TERMINALID Already Exists", "TERMINALID : "+dto.getTERMINALID()), HttpStatus.CREATED);
+        };
         return new ResponseEntity(new StandardResponse("201", "Done", dto), HttpStatus.CREATED);
     }
 
